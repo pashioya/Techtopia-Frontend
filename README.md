@@ -1,92 +1,52 @@
-# techtopia-frontend
+# Frontend README
 
+## Techtopia Theme Park - Frontend Project
 
+Welcome to the frontend project for Techtopia Theme Park! This repository focuses on the user interface and user experience components of our theme park management system. Techtopia is the ultimate destination for tech enthusiasts and adventure seekers, offering a unique blend of real-world attractions, augmented reality adventures, and IoT-enabled elements.
 
-## Getting started
+## Introduction
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+At Techtopia, we've seamlessly integrated cutting-edge technology to provide visitors and park management with an unforgettable experience. From heart-pounding roller coasters to mind-bending virtual reality quests, our park takes guests on a journey like no other. This frontend project is dedicated to the points of interest application, which will be used by both visitors and park management.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Getting Started
 
-## Add your files
+To successfully complete this project, follow these steps:
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Step 1: Get Familiar with React
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/kdg-ti/programming6/students/23-24/paulashioya/techtopia-frontend.git
-git branch -M main
-git push -uf origin main
-```
+Before diving into the points of interest application, it's essential to get familiar with React. You can use a separate exercise (Soundboard) to build your React skills.
 
-## Integrate with your tools
+### Step 2: Transform UI-Related User Stories into Wireframes
 
-- [ ] [Set up project integrations](https://gitlab.com/kdg-ti/programming6/students/23-24/paulashioya/techtopia-frontend/-/settings/integrations)
+Once you're comfortable with React, transform the UI-related user stories into wireframes. These wireframes will serve as visual blueprints for the application's user interface.
 
-## Collaborate with your team
+### Step 3: Kick-off Implementation
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+Kick off the implementation phase. If necessary, mock (parts of) the backend to proceed with the frontend development.
 
-## Test and Deploy
+### Step 4: Iterate on Implementation
 
-Use the built-in continuous integration in GitLab.
+Iterate on the implementation using the concepts and knowledge you've gained. Continuously improve the user interface and user experience.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Project Management
 
-***
+In this repository, we use GitLab as a single source of truth. Please ensure the following:
 
-# Editing this README
+- Maintain a clean commit history for each repository.
+- Clearly document user stories and track progress.
+- Create a project dashboard with the following columns: Open, Ready, Doing, Closed.
+    - Open: user stories that are identified but not entirely clear to you.
+    - Ready: user stories that are clear and ready for development.
+    - Doing: user stories you are currently implementing.
+    - Closed: user stories that are completed.
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+## Wireframes and Documentation
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+For effective project management, consider the following aspects:
 
-## Name
-Choose a self-explaining name for your project.
+- Create wireframes for each screen or screen state. Paper sketches are allowed (take pictures in that case), but a digital tool is advised.
+- Provide lightweight documentation, including domain models, activity diagrams, command and event catalogs, and a UX test report.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+For specific evaluation details, please refer to the Programming 6 - Introduction slides.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Let's work together to create an outstanding theme park experience for our visitors and efficient park management for Techtopia!
