@@ -2,14 +2,14 @@ import { RefreshmentStand } from "./RefreshmentStand";
 import { Attraction } from "./Attraction";
 import { PointOfInterest } from "./PointOfInterest";
 import { MapObject } from "../config/Types";
-export interface InteractiveMap {
+export interface InteractiveMapObject {
     Attraction: Attraction[];
     RefreshmentStand: RefreshmentStand[];
     PointOfInterest: PointOfInterest[] | null;
 }
 
 export function mapInteractiveMapToMapObject(
-    interactiveMap: InteractiveMap | null
+    interactiveMap: InteractiveMapObject | null
 ): MapObject[] {
     const mapObjects: MapObject[] = [];
 
@@ -24,8 +24,8 @@ export function mapInteractiveMapToMapObject(
         // Map attractions to MapObjects
         interactiveMap.Attraction.forEach((attraction) => {
             mapObjects.push({
-                x: attraction.location[0], // Assuming the location property is an array [x, y]
-                y: attraction.location[1],
+                x: attraction.x,
+                y: attraction.y,
                 type: "Attraction",
             });
         });
@@ -35,8 +35,8 @@ export function mapInteractiveMapToMapObject(
         // Map refreshment stands to MapObjects
         interactiveMap.RefreshmentStand.forEach((refreshmentStand) => {
             mapObjects.push({
-                x: refreshmentStand.location[0],
-                y: refreshmentStand.location[1],
+                x: refreshmentStand.x,
+                y: refreshmentStand.y,
                 type: "Refreshment Stand",
             });
         });
@@ -50,8 +50,8 @@ export function mapInteractiveMapToMapObject(
 
     interactiveMap.PointOfInterest.forEach((pointOfInterest) => {
         mapObjects.push({
-            x: pointOfInterest.location[0],
-            y: pointOfInterest.location[1],
+            x: pointOfInterest.x,
+            y: pointOfInterest.y,
             type: "Point of Interest",
         });
     });

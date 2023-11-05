@@ -8,9 +8,9 @@ import Footer from "../components/UI/Footer.tsx";
 import { useEffect, useState } from "react";
 import { getInteractiveMap } from "../services/API.ts";
 import {
-    InteractiveMap,
+    InteractiveMapObject,
     mapInteractiveMapToMapObject,
-} from "../model/InteractiveMap.ts";
+} from "../model/InteractiveMapObject.ts";
 
 const sections = [
     { title: "Attractions", url: "/attractions" },
@@ -56,9 +56,8 @@ const sidebar = {
 };
 
 export function Home() {
-    const [interactiveMap, setInteractiveMap] = useState<InteractiveMap | null>(
-        null
-    );
+    const [interactiveMap, setInteractiveMap] =
+        useState<InteractiveMapObject | null>(null);
 
     useEffect(() => {
         // Fetch interactive map data when the component mounts

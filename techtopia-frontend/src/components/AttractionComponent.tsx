@@ -30,6 +30,12 @@ export default function AttractionComponent(props: AttractionProps) {
                         <Typography variant="subtitle1" color="text.secondary">
                             Current Capacity: {attraction.currentCapacity}
                         </Typography>
+                        <Typography variant="subtitle1" color="text.secondary">
+                            Current x: {attraction.x}
+                        </Typography>
+                        <Typography variant="subtitle1" color="text.secondary">
+                            Current y: {attraction.y}
+                        </Typography>
                     </CardContent>
                     <CardMedia
                         component="img"

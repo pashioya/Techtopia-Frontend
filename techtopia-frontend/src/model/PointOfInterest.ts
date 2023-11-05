@@ -1,6 +1,7 @@
 export interface PointOfInterest {
     name: string;
     description: string;
-    location: [number, number];
+    x: number;
+    y: number;
     type: string;
 }

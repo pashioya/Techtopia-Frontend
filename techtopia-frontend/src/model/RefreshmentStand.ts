@@ -2,6 +2,7 @@ export interface RefreshmentStand {
     name: string;
     description: string;
     status: string;
-    location: [number, number];
+    x: number;
+    y: number;
     type: string;
 }

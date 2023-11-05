@@ -29,6 +29,8 @@ export function Attractions() {
     useEffect(() => {
         getAttractions()
             .then((data) => setAttractions(data))
+            .then(() => console.log("Attractions fetched"))
+            .then(() => console.log(attractions))
             .catch((error) =>
                 console.error("Error fetching attractions:", error)
             );
@@ -55,8 +57,8 @@ export function Attractions() {
                     <MapSection
                         title="Interactive Map"
                         mapObjects={attractions.map((attraction) => ({
-                            x: attraction.location[0],
-                            y: attraction.location[1],
+                            x: attraction.x,
+                            y: attraction.y,
                             type: attraction.type,
                         }))}
                     />

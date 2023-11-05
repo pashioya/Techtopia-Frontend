@@ -4,6 +4,7 @@ export interface Attraction {
     currentCapacity: number;
     maxCapacity: number;
     averageWaitTime: string;
-    location: [number, number];
+    x: number;
+    y: number;
     type: string;
 }
