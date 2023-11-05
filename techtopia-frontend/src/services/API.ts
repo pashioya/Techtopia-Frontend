@@ -4,26 +4,39 @@ import { RefreshmentStand } from "../model/RefreshmentStand";
 import { PointOfInterest } from "../model/PointOfInterest";
 import { InteractiveMap } from "../model/InteractiveMap";
 
+// import express from "express";
+// import cors from "cors";
+// const app = express();
+
+// app.use(cors({ origin: "http://localhost:5173" }));
+// const PORT = 8092;
+// app.listen(PORT, () => {
+//     console.log(`Server is running on port ${PORT}`);
+// });
+
 const BASE_URL = "http://localhost:8092";
-const ATTRACTIONS_URL = `${BASE_URL}/attractions`;
+
+axios.defaults.baseURL = BASE_URL;
+
+const ATTRACTION_URL = `${BASE_URL}/attractions`;
 const REFRESHMENT_URL = `${BASE_URL}/refreshments`;
 const POINT_OF_INTEREST_URL = `${BASE_URL}/pointOfInterests`;
 const INTERACTIVE_MAP_URL = `${BASE_URL}/interactiveMap`;
 
 export async function getAttractions(): Promise<Attraction[]> {
     try {
-        const response = await axios.get(ATTRACTIONS_URL);
+        const response = await axios.get(ATTRACTION_URL);
+
         return response.data.map(
             (attractionData: {
-                title: string;
+                name: string;
                 description: string;
                 currentCapacity: number;
                 maxCapacity: number;
-                averageWaitTime: number;
+                averageWaitTime: string;
                 location: [number, number];
-                type: string;
             }) => ({
-                title: attractionData.title,
+                name: attractionData.name,
                 description: attractionData.description,
                 currentCapacity: attractionData.currentCapacity,
                 maxCapacity: attractionData.maxCapacity,
@@ -38,16 +51,18 @@ export async function getAttractions(): Promise<Attraction[]> {
     }
 }
 
-export async function getRefreshments(): Promise<RefreshmentStand[]> {
+export async function getRefreshmentStands(): Promise<RefreshmentStand[]> {
     try {
         const response = await axios.get(REFRESHMENT_URL);
+
+        console.log("Get refreshmentsStands");
+        console.log(response.data);
         return response.data.map(
             (refreshmentData: {
                 name: string;
                 description: string;
                 status: string;
                 location: [number, number];
-                type: string;
             }) => ({
                 name: refreshmentData.name,
                 description: refreshmentData.description,
@@ -70,7 +85,6 @@ export async function getPointOfInterests(): Promise<PointOfInterest[]> {
                 name: string;
                 description: string;
                 location: [number, number];
-                type: string;
             }) => ({
                 name: pointOfInterestData.name,
                 description: pointOfInterestData.description,
@@ -96,7 +110,6 @@ export async function getInteractiveMap(): Promise<InteractiveMap> {
                     maxCapacity: number;
                     averageWaitTime: number;
                     location: [number, number];
-                    type: string;
                 }) => ({
                     title: attractionData.title,
                     description: attractionData.description,
@@ -104,7 +117,6 @@ export async function getInteractiveMap(): Promise<InteractiveMap> {
                     maxCapacity: attractionData.maxCapacity,
                     averageWaitTime: attractionData.averageWaitTime,
                     location: attractionData.location,
-                    type: attractionData.type,
                 })
             ) as Attraction[],
             RefreshmentStand: response.data.RefreshmentStand.map(
@@ -113,13 +125,11 @@ export async function getInteractiveMap(): Promise<InteractiveMap> {
                     description: string;
                     status: string;
                     location: [number, number];
-                    type: string;
                 }) => ({
                     name: refreshmentData.name,
                     description: refreshmentData.description,
                     status: refreshmentData.status,
                     location: refreshmentData.location,
-                    type: refreshmentData.type,
                 })
             ) as RefreshmentStand[],
             PointOfInterest: response.data.PointOfInterest.map(
@@ -127,7 +137,6 @@ export async function getInteractiveMap(): Promise<InteractiveMap> {
                     name: string;
                     description: string;
                     location: [number, number];
-                    type: string;
                 }) => ({
                     name: pointOfInterestData.name,
                     description: pointOfInterestData.description,

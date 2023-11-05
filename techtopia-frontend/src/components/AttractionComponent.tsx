@@ -19,7 +19,7 @@ export default function AttractionComponent(props: AttractionProps) {
                 <Card sx={{ display: "flex" }}>
                     <CardContent sx={{ flex: 1 }}>
                         <Typography component="h2" variant="h5">
-                            {attraction.title}
+                            {attraction.name}
                         </Typography>
                         <Typography variant="subtitle1" color="text.secondary">
                             Average waitTime: {attraction.averageWaitTime}

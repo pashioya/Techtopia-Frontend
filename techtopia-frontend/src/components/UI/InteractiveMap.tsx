@@ -29,7 +29,14 @@ const MapChart: FC<MapChartProps> = ({ mapObjects }) => {
     };
 
     return (
-        <div>
+        <div
+            style={{
+                border: "2px solid #D3D3D3",
+                borderRadius: "10px",
+                padding: "10px",
+                backgroundColor: "#f0f0f0",
+            }}
+        >
             <ComposableMap projection="geoMercator">
                 <ZoomableGroup center={center} onMoveEnd={handlePan}>
                     <image href={customMapImage} width="100%" height="100%" />

@@ -7,7 +7,10 @@ import Sidebar from "../components/UI/SideBar.tsx";
 import Footer from "../components/UI/Footer.tsx";
 import { useEffect, useState } from "react";
 import { getInteractiveMap } from "../services/API.ts";
-import { InteractiveMap, mapInteractiveMapToMapObject } from "../model/InteractiveMap.ts";
+import {
+    InteractiveMap,
+    mapInteractiveMapToMapObject,
+} from "../model/InteractiveMap.ts";
 
 const sections = [
     { title: "Attractions", url: "/attractions" },
@@ -53,7 +56,9 @@ const sidebar = {
 };
 
 export function Home() {
-    const [interactiveMap, setInteractiveMap] = useState<InteractiveMap | null>(null);
+    const [interactiveMap, setInteractiveMap] = useState<InteractiveMap | null>(
+        null
+    );
 
     useEffect(() => {
         // Fetch interactive map data when the component mounts
@@ -63,7 +68,6 @@ export function Home() {
                 console.error("Error fetching interactive map:", error)
             );
     }, []);
-
     return (
         <>
             <Header sections={sections} title={"Techtopia"} />
@@ -77,7 +81,9 @@ export function Home() {
                 <Grid container spacing={5} sx={{ mt: 3 }}>
                     <MapSection
                         title="Interactive Map"
-                        mapObjects={mapInteractiveMapToMapObject(interactiveMap)}
+                        mapObjects={mapInteractiveMapToMapObject(
+                            interactiveMap
+                        )}
                     />
                     <Sidebar
                         title={sidebar.title}

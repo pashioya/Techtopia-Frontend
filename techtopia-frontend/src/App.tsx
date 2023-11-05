@@ -2,33 +2,33 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import "./App.css";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import { Attractions } from "@mui/icons-material";
-
-const defaultTheme = createTheme({
-    palette: {
-        mode: "dark",
-        background: {
-            default: "#121212",
-            paper: "#424242",
-        },
-        primary: {
-            main: "#bb0d92",
-        },
-    },
-});
+import { Attractions } from "./pages/Attractions.tsx";
 
 // const defaultTheme = createTheme({
 //     palette: {
-//         mode: "light",
+//         mode: "dark",
 //         background: {
-//             default: "#fff",
-//             paper: "#fff",
+//             default: "#121212",
+//             paper: "#424242",
 //         },
 //         primary: {
 //             main: "#bb0d92",
 //         },
 //     },
 // });
+
+const defaultTheme = createTheme({
+    palette: {
+        mode: "light",
+        background: {
+            default: "#fff",
+            paper: "#fff",
+        },
+        primary: {
+            main: "#bb0d92",
+        },
+    },
+});
 
 function App() {
     return (

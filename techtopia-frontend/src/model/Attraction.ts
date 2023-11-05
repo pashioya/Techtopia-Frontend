@@ -1,10 +1,9 @@
 export interface Attraction {
-    id: number;
-    title: string;
+    name: string;
     description: string;
     currentCapacity: number;
     maxCapacity: number;
-    averageWaitTime: number;
+    averageWaitTime: string;
     location: [number, number];
     type: string;
 }

@@ -19,14 +19,10 @@ const sidebar = {
     title: "About",
     description:
         "Techtopia is a theme park where you can learn about technology and have fun at the same time!",
-    mapObjects: [
-        { icon: "🎢", name: "Attractions" },
-        { icon: "🍔", name: "Refreshment Stands" },
-        { icon: "🏛️", name: "Points of Interest" },
-    ],
+    mapObjects: [{ icon: "🎢", name: "Attractions" }],
 };
 
-export function Home() {
+export function Attractions() {
     const [attractions, setAttractions] = useState<Attraction[]>([]);
     const [attractionCount] = useState(0);
 
@@ -40,7 +36,7 @@ export function Home() {
 
     return (
         <>
-            <Header sections={sections} title={"Techtopia"} />
+            <Header sections={sections} title={"Attractions"} />
             <main className="home-content-wrapper">
                 <Grid container spacing={4}>
                     {attractions.map((attraction, index) => (
