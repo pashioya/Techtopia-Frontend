@@ -8,11 +8,11 @@ function colorSelection(type: string) {
         case "ATTRACTION":
             return "#FF5533";
         case "REFRESHMENT_STAND":
-            return "#FFC433";
+            return "#AAFF00";
         case "POINT_OF_INTEREST":
             return "#33FF55";
         default:
-            return "#FF5533";
+            return "#000000";
     }
 }
 

@@ -21,6 +21,13 @@ export default function Header(props: HeaderProps) {
     return (
         <React.Fragment>
             <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <Button
+                    variant="outlined"
+                    size="small"
+                    onClick={() => navigate("/")}
+                >
+                    Home
+                </Button>
                 <Typography
                     component="h2"
                     variant="h5"

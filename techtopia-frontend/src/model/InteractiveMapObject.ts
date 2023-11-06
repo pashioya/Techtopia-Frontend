@@ -26,7 +26,7 @@ export function mapInteractiveMapToMapObject(
             mapObjects.push({
                 x: attraction.x,
                 y: attraction.y,
-                type: "Attraction",
+                type: "ATTRACTION",
             });
         });
     }
@@ -37,7 +37,7 @@ export function mapInteractiveMapToMapObject(
             mapObjects.push({
                 x: refreshmentStand.x,
                 y: refreshmentStand.y,
-                type: "Refreshment Stand",
+                type: "REFRESHMENT_STAND",
             });
         });
     }
@@ -52,7 +52,7 @@ export function mapInteractiveMapToMapObject(
         mapObjects.push({
             x: pointOfInterest.x,
             y: pointOfInterest.y,
-            type: "Point of Interest",
+            type: "POINT_OF_INTEREST",
         });
     });
 

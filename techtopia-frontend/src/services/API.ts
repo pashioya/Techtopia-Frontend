@@ -104,7 +104,7 @@ export async function getInteractiveMap(): Promise<InteractiveMapObject> {
         const response = await axios.get(INTERACTIVE_MAP_URL);
 
         console.log("Get interactive map");
-        const Attraction = (response.data.attraction ?? []).map(
+        const Attraction = (response.data.attractions ?? []).map(
             (attractionData: {
                 title: string;
                 description: string;
@@ -120,10 +120,10 @@ export async function getInteractiveMap(): Promise<InteractiveMapObject> {
                 averageWaitTime: attractionData.averageWaitTime,
                 x: attractionData.location.x,
                 y: attractionData.location.y,
+                type: "ATTRACTION",
             })
         ) as Attraction[];
 
-        console.log("Gorren Attractiocns");
         console.log(Attraction);
 
         const RefreshmentStand = (response.data.refreshmentStands ?? []).map(
@@ -138,10 +138,10 @@ export async function getInteractiveMap(): Promise<InteractiveMapObject> {
                 status: refreshmentData.status,
                 x: refreshmentData.location.x,
                 y: refreshmentData.location.y,
+                type: "REFRESHMENT_STAND",
             })
         ) as RefreshmentStand[];
 
-        console.log("Gotten Refreshment Stands");
         console.log(RefreshmentStand);
 
         const PointOfInterest = (response.data.pointsOfInterest ?? []).map(
@@ -154,6 +154,7 @@ export async function getInteractiveMap(): Promise<InteractiveMapObject> {
                 description: pointOfInterestData.description,
                 x: pointOfInterestData.location.x,
                 y: pointOfInterestData.location.y,
+                type: "POINT_OF_INTEREST",
             })
         ) as PointOfInterest[];
 
