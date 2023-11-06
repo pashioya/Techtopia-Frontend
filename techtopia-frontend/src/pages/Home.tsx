@@ -14,7 +14,7 @@ import {
 
 const sections = [
     { title: "Attractions", url: "/attractions" },
-    { title: "Refreshment Stands", url: "/refreshementStands" },
+    { title: "Refreshment Stands", url: "/refreshmentStands" },
     { title: "Point of Interests", url: "/pointOfInterests" },
 ];
 

@@ -4,10 +4,10 @@ import Grid from "@mui/material/Grid";
 import MapSection from "../components/UI/MapSection.tsx";
 import Sidebar from "../components/UI/SideBar.tsx";
 import Footer from "../components/UI/Footer.tsx";
-import { getAttractions } from "../services/API.ts";
+import { getPointOfInterests } from "../services/API.ts";
+import { PointOfInterest } from "../model/PointOfInterest.ts";
+import PointOfInterestComponent from "../components/PointOfInterestComponent.tsx";
 import { useEffect, useState } from "react";
-import { Attraction } from "../model/Attraction.ts";
-import AttractionComponent from "../components/AttractionComponent.tsx";
 
 const sections = [
     { title: "Attractions", url: "/attractions" },
@@ -22,15 +22,16 @@ const sidebar = {
     mapObjects: [{ icon: "🎢", name: "Attractions" }],
 };
 
-export function Attractions() {
-    const [attractions, setAttractions] = useState<Attraction[]>([]);
-    const [attractionCount] = useState(0);
+export function PointOfInterests() {
+    const [pointOfInterests, setPointOfInterests] = useState<PointOfInterest[]>(
+        []
+    );
+    const [pointOfInterestCount] = useState(0);
 
     useEffect(() => {
-        getAttractions()
-            .then((data) => setAttractions(data))
+        getPointOfInterests()
+            .then((data) => setPointOfInterests(data))
             .then(() => console.log("Attractions fetched"))
-            .then(() => console.log(attractions))
             .catch((error) =>
                 console.error("Error fetching attractions:", error)
             );
@@ -38,28 +39,30 @@ export function Attractions() {
 
     return (
         <>
-            <Header sections={sections} title={"Attractions"} />
+            <Header sections={sections} title={"Point Of Interests"} />
             <main className="home-content-wrapper">
                 <Grid container spacing={4}>
-                    {attractions.map((attraction, index) => (
+                    {pointOfInterests.map((pointOfInterest, index) => (
                         <Grid
                             item
-                            key={attractionCount + index}
+                            key={pointOfInterestCount + index}
                             xs={12}
                             sm={6}
                             md={4}
                         >
-                            <AttractionComponent attraction={attraction} />
+                            <PointOfInterestComponent
+                                pointOfInterest={pointOfInterest}
+                            />
                         </Grid>
                     ))}
                 </Grid>
                 <Grid container spacing={5} sx={{ mt: 3 }}>
                     <MapSection
                         title="Interactive Map"
-                        mapObjects={attractions.map((attraction) => ({
-                            x: attraction.x,
-                            y: attraction.y,
-                            type: attraction.type,
+                        mapObjects={pointOfInterests.map((pointOfInterest) => ({
+                            x: pointOfInterest.x,
+                            y: pointOfInterest.y,
+                            type: pointOfInterest.type,
                         }))}
                     />
                     <Sidebar

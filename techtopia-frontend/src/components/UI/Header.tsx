@@ -52,7 +52,7 @@ export default function Header(props: HeaderProps) {
                         onClick={() => {
                             navigate(section.url);
                         }}
-                        sx={{ p: 1, flexShrink: 0 }}
+                        sx={{ p: 1, flexShrink: 0, cursor: "pointer" }}
                     >
                         {section.title}
                     </Link>

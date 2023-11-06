@@ -19,7 +19,7 @@ const BASE_URL = "http://localhost:8092";
 axios.defaults.baseURL = BASE_URL;
 
 const ATTRACTION_URL = `${BASE_URL}/attractions`;
-const REFRESHMENT_URL = `${BASE_URL}/refreshments`;
+const REFRESHMENT_URL = `${BASE_URL}/refreshmentStands`;
 const POINT_OF_INTEREST_URL = `${BASE_URL}/pointOfInterests`;
 const INTERACTIVE_MAP_URL = `${BASE_URL}/interactiveMap`;
 
@@ -56,9 +56,7 @@ export async function getAttractions(): Promise<Attraction[]> {
 export async function getRefreshmentStands(): Promise<RefreshmentStand[]> {
     try {
         const response = await axios.get(REFRESHMENT_URL);
-
         console.log("Get refreshmentsStands");
-        console.log(response.data);
         return response.data.map(
             (refreshmentData: {
                 name: string;
@@ -69,7 +67,8 @@ export async function getRefreshmentStands(): Promise<RefreshmentStand[]> {
                 name: refreshmentData.name,
                 description: refreshmentData.description,
                 status: refreshmentData.status,
-                location: refreshmentData.location,
+                x: refreshmentData.location.x,
+                y: refreshmentData.location.y,
                 type: "REFRESHMENT_STAND",
             })
         ) as RefreshmentStand[];

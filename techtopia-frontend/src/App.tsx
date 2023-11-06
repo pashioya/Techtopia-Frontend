@@ -3,6 +3,8 @@ import { Home } from "./pages/Home";
 import "./App.css";
 import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { Attractions } from "./pages/Attractions.tsx";
+import { PointOfInterests } from "./pages/PointOfInterests.tsx";
+import { RefreshmentStands } from "./pages/RefreshmentStands.tsx";
 
 // const defaultTheme = createTheme({
 //     palette: {
@@ -45,11 +47,11 @@ function App() {
                             />
                             <Route
                                 path="/refreshmentStands"
-                                element={<Home />}
+                                element={<RefreshmentStands />}
                             />
                             <Route
                                 path="/pointOfInterests"
-                                element={<Home />}
+                                element={<PointOfInterests />}
                             />
                         </Routes>
                     </BrowserRouter>
