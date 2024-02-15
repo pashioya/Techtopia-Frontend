@@ -1,63 +1,51 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./pages/Home";
 import "./App.css";
-import { CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { Attractions } from "./pages/Attractions.tsx";
 import { PointOfInterests } from "./pages/PointOfInterests.tsx";
 import { RefreshmentStands } from "./pages/RefreshmentStands.tsx";
+import { lightTheme } from "./utils/themes.ts";
+import SecurityContextProvider from "./context/SecurityContextProvider.tsx";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import AttractionsContextProvider from "./context/attractions/AttractionsContextProvider.tsx";
+import RefreshmentStandContextProvider from "./context/refreshmentStands/RefreshmentStandContextProvider.tsx";
+import PointOfInterestContextProvider from "./context/pointOfInterests/PointOfInterestContextProvider.tsx";
 
-// const defaultTheme = createTheme({
-//     palette: {
-//         mode: "dark",
-//         background: {
-//             default: "#121212",
-//             paper: "#424242",
-//         },
-//         primary: {
-//             main: "#bb0d92",
-//         },
-//     },
-// });
-
-const defaultTheme = createTheme({
-    palette: {
-        mode: "light",
-        background: {
-            default: "#fff",
-            paper: "#fff",
-        },
-        primary: {
-            main: "#bb0d92",
-        },
-    },
-});
+const queryClient = new QueryClient();
 
 function App() {
     return (
-        <>
-            <div className="App">
-                <ThemeProvider theme={defaultTheme}>
-                    <CssBaseline />
-                    <BrowserRouter>
-                        <Routes>
-                            <Route path="/" element={<Home />} />
-                            <Route
-                                path="/attractions"
-                                element={<Attractions />}
-                            />
-                            <Route
-                                path="/refreshmentStands"
-                                element={<RefreshmentStands />}
-                            />
-                            <Route
-                                path="/pointOfInterests"
-                                element={<PointOfInterests />}
-                            />
-                        </Routes>
-                    </BrowserRouter>
-                </ThemeProvider>
-            </div>
-        </>
+        <ThemeProvider theme={lightTheme}>
+            <QueryClientProvider client={queryClient}>
+                <SecurityContextProvider>
+                    <AttractionsContextProvider>
+                        <RefreshmentStandContextProvider>
+                            <PointOfInterestContextProvider>
+                                <CssBaseline />
+                                <BrowserRouter>
+                                    <Routes>
+                                        <Route path="/" element={<Home />} />
+                                        <Route
+                                            path="/attractions"
+                                            element={<Attractions />}
+                                        />
+                                        <Route
+                                            path="/refreshmentStands"
+                                            element={<RefreshmentStands />}
+                                        />
+                                        <Route
+                                            path="/pointOfInterests"
+                                            element={<PointOfInterests />}
+                                        />
+                                    </Routes>
+                                </BrowserRouter>
+                            </PointOfInterestContextProvider>
+                        </RefreshmentStandContextProvider>
+                    </AttractionsContextProvider>
+                </SecurityContextProvider>
+            </QueryClientProvider>
+        </ThemeProvider>
     );
 }
 

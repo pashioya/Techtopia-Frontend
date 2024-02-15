@@ -6,11 +6,11 @@ import MapSection from "../components/UI/MapSection.tsx";
 import Sidebar from "../components/UI/SideBar.tsx";
 import Footer from "../components/UI/Footer.tsx";
 import { useEffect, useState } from "react";
-import { getInteractiveMap } from "../services/API.ts";
 import {
     InteractiveMapObject,
     mapInteractiveMapToMapObject,
 } from "../model/InteractiveMapObject.ts";
+import { getInteractiveMap } from "../services/interactiveMapAPI.ts";
 
 const sections = [
     { title: "Attractions", url: "/attractions" },

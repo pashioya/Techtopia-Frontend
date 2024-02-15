@@ -4,10 +4,9 @@ import Grid from "@mui/material/Grid";
 import MapSection from "../components/UI/MapSection.tsx";
 import Sidebar from "../components/UI/SideBar.tsx";
 import Footer from "../components/UI/Footer.tsx";
-import { getAttractions } from "../services/API.ts";
-import { useEffect, useState } from "react";
-import { Attraction } from "../model/Attraction.ts";
+import { useContext, useState } from "react";
 import AttractionComponent from "../components/AttractionComponent.tsx";
+import AttractionsContext from "../context/attractions/AttractionsContext.ts";
 
 const sections = [
     { title: "Attractions", url: "/attractions" },
@@ -23,25 +22,15 @@ const sidebar = {
 };
 
 export function Attractions() {
-    const [attractions, setAttractions] = useState<Attraction[]>([]);
     const [attractionCount] = useState(0);
-
-    useEffect(() => {
-        getAttractions()
-            .then((data) => setAttractions(data))
-            .then(() => console.log("Attractions fetched"))
-            .then(() => console.log(attractions))
-            .catch((error) =>
-                console.error("Error fetching attractions:", error)
-            );
-    }, []);
+    const { attractions } = useContext(AttractionsContext);
 
     return (
         <>
             <Header sections={sections} title={"Attractions"} />
             <main className="home-content-wrapper">
                 <Grid container spacing={4}>
-                    {attractions.map((attraction, index) => (
+                    {attractions?.map((attraction, index) => (
                         <Grid
                             item
                             key={attractionCount + index}
@@ -54,14 +43,14 @@ export function Attractions() {
                     ))}
                 </Grid>
                 <Grid container spacing={5} sx={{ mt: 3 }}>
-                    <MapSection
+                    {/* <MapSection
                         title="Interactive Map"
-                        mapObjects={attractions.map((attraction) => ({
+                        mapObjects={attractions?.map((attraction) => ({
                             x: attraction.x,
                             y: attraction.y,
                             type: attraction.type,
                         }))}
-                    />
+                    /> */}
                     <Sidebar
                         title={sidebar.title}
                         description={sidebar.description}

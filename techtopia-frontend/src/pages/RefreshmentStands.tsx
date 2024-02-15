@@ -4,10 +4,9 @@ import Grid from "@mui/material/Grid";
 import MapSection from "../components/UI/MapSection.tsx";
 import Sidebar from "../components/UI/SideBar.tsx";
 import Footer from "../components/UI/Footer.tsx";
-import { getRefreshmentStands } from "../services/API.ts";
-import { useEffect, useState } from "react";
-import { RefreshmentStand } from "../model/RefreshmentStand.ts";
+import { useContext, useState } from "react";
 import RefreshmentStandComponent from "../components/RefreshmentStandComponent.tsx";
+import RefreshmentStandContext from "../context/refreshmentStands/RefreshmentStandContext.ts";
 const sections = [
     { title: "Attractions", url: "/attractions" },
     { title: "Refreshment Stands", url: "/refreshmentStands" },
@@ -22,25 +21,15 @@ const sidebar = {
 };
 
 export function RefreshmentStands() {
-    const [refreshmentStands, setRefreshmentStands] = useState<
-        RefreshmentStand[]
-    >([]);
     const [refreshmentStandsCount] = useState(0);
-
-    useEffect(() => {
-        getRefreshmentStands()
-            .then((data) => setRefreshmentStands(data))
-            .catch((error) =>
-                console.error("Error fetching attractions:", error)
-            );
-    }, []);
+    const { refreshmentStands } = useContext(RefreshmentStandContext);
 
     return (
         <>
             <Header sections={sections} title={"Attractions"} />
             <main className="home-content-wrapper">
                 <Grid container spacing={4}>
-                    {refreshmentStands.map((refreshmentStand, index) => (
+                    {refreshmentStands?.map((refreshmentStand, index) => (
                         <Grid
                             item
                             key={refreshmentStandsCount + index}
@@ -55,7 +44,7 @@ export function RefreshmentStands() {
                     ))}
                 </Grid>
                 <Grid container spacing={5} sx={{ mt: 3 }}>
-                    <MapSection
+                    {/* <MapSection
                         title="Interactive Map"
                         mapObjects={refreshmentStands.map(
                             (refreshmentStand) => ({
@@ -64,7 +53,7 @@ export function RefreshmentStands() {
                                 type: refreshmentStand.type,
                             })
                         )}
-                    />
+                    /> */}
                     <Sidebar
                         title={sidebar.title}
                         description={sidebar.description}
