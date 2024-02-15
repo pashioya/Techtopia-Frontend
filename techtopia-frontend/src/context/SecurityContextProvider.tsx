@@ -26,8 +26,6 @@ export default function SecurityContextProvider({ children }: IWithChildren) {
         keycloak.init({ onLoad: "login-required" });
     }, []);
 
-    console.log("keycloak", keycloak);
-
     keycloak.onAuthSuccess = () => {
         addAccessTokenToAuthHeader(keycloak.token);
         setLoggedInUser(keycloak.idTokenParsed?.name);

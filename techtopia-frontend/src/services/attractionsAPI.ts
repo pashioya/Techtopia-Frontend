@@ -5,13 +5,9 @@ const BASE_URL = "http://localhost:8092";
 axios.defaults.baseURL = BASE_URL;
 const ATTRACTION_URL = `${BASE_URL}/attractions`;
 
-
-
 export async function getAttractions(): Promise<Attraction[]> {
     try {
         const response = await axios.get(ATTRACTION_URL);
-        console.log(response.data);
-
         return response.data.map(
             (attractionData: {
                 name: string;

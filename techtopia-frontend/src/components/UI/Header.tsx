@@ -1,11 +1,11 @@
 import * as React from "react";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import { useNavigate } from "react-router-dom";
+import SecurityContext from "../../context/SecurityContext";
+import { useContext } from "react";
 
 interface HeaderProps {
     sections: ReadonlyArray<{
@@ -18,6 +18,9 @@ interface HeaderProps {
 export default function Header(props: HeaderProps) {
     const { sections, title } = props;
     const navigate = useNavigate();
+    const { isAuthenticated, logout, loggedInUser } =
+        useContext(SecurityContext);
+
     return (
         <React.Fragment>
             <Toolbar sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -38,12 +41,23 @@ export default function Header(props: HeaderProps) {
                 >
                     {title}
                 </Typography>
-                <IconButton>
-                    <SearchIcon />
-                </IconButton>
-                <Button variant="outlined" size="small">
-                    Sign In
-                </Button>
+                {!isAuthenticated() && (
+                    <Button variant="outlined" size="small">
+                        Sign In
+                    </Button>
+                )}
+                {isAuthenticated() && (
+                    <>
+                        <Typography>Hello, {loggedInUser}</Typography>
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            onClick={() => logout()}
+                        >
+                            Logout
+                        </Button>
+                    </>
+                )}
             </Toolbar>
             <Toolbar
                 component="nav"

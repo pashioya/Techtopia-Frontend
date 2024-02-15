@@ -10,17 +10,9 @@ axios.defaults.baseURL = BASE_URL;
 
 const INTERACTIVE_MAP_URL = `${BASE_URL}/interactiveMap`;
 
-
-
-
-
-
-
 export async function getInteractiveMap(): Promise<InteractiveMapObject> {
     try {
         const response = await axios.get(INTERACTIVE_MAP_URL);
-
-        console.log("Get interactive map");
         const Attraction = (response.data.attractions ?? []).map(
             (attractionData: {
                 title: string;
@@ -41,8 +33,6 @@ export async function getInteractiveMap(): Promise<InteractiveMapObject> {
             })
         ) as Attraction[];
 
-        console.log(Attraction);
-
         const RefreshmentStand = (response.data.refreshmentStands ?? []).map(
             (refreshmentData: {
                 name: string;
@@ -59,8 +49,6 @@ export async function getInteractiveMap(): Promise<InteractiveMapObject> {
             })
         ) as RefreshmentStand[];
 
-        console.log(RefreshmentStand);
-
         const PointOfInterest = (response.data.pointsOfInterest ?? []).map(
             (pointOfInterestData: {
                 name: string;
@@ -75,16 +63,12 @@ export async function getInteractiveMap(): Promise<InteractiveMapObject> {
             })
         ) as PointOfInterest[];
 
-        console.log("Gotten POints of interst");
-        console.log(PointOfInterest);
-
         return {
             Attraction,
             RefreshmentStand,
             PointOfInterest,
         };
     } catch (error) {
-        console.error("Error fetching interactive map:", error);
         return {
             Attraction: [],
             RefreshmentStand: [],
